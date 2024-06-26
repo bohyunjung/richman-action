@@ -1,0 +1,33 @@
+name: richman-action.game
+
+on:
+  schedule:
+    - cron: '55 23 * * 5' # UST 기준의 크론. UST 23:55 는 KST 08:55
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install python requirements
+      run: |        
+        pip install -r requirements
+        python -m playwright install ${{ matrix.browser-channel }} --with-deps
+    
+    - name: Run
+      env:
+        USER_ID: ${{ secrets.USER_ID }} 
+        USER_PW: ${{ secrets.USER_PW }} 
+
+      run: |        
+        python ./lotto.py
+
