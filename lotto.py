@@ -1,5 +1,5 @@
 #!/bin/env python3
-import random
+import os
 
 from playwright.sync_api import Playwright, sync_playwright
 import time
