@@ -42,17 +42,23 @@ def game(page):
 
 def run(playwright):
 
-    browser = playwright.chromium.launch(headless=False)
+    print("Initializing...")
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
     page = context.new_page()
 
+    print("Logging in...")
     login(page)
+    
+    print("Running games...")
     game(page)
 
+    print("Cleaning up...")
     context.close()
     browser.close()
+    
+    print("Done!!!")
 
 
 with sync_playwright() as playwright:
     run(playwright)
-
