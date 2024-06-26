@@ -2,7 +2,7 @@ name: richman-action.game
 
 on:
   schedule:
-    - cron: '55 23 * * 5' # UST 기준의 크론. UST 23:55 는 KST 08:55
+    - cron: '0 0 * * MON' # UTC 기준의 크론. UTC 23:55 는 KST 08:55
   workflow_dispatch:
     inputs:
       logLevel:
