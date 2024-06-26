@@ -17,6 +17,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7]
+        browser-channel
 
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +29,7 @@ jobs:
     - name: Install python requirements
       run: |        
         pip install -r requirements
-        python -m playwright install ${{ matrix.browser-channel }} --with-deps
+        playwright install chromium --with-deps
     
     - name: Run
       env:
