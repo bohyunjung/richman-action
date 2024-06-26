@@ -29,7 +29,7 @@ def game(page):
     if page.locator('#popupLayerAlert').is_visible():
         page.locator('#popupLayerAlert').get_by_role('button', name='확인').click()
 
-    for _ in range(5):
+    for _ in range(2):
         page.click('label:has-text("자동선택")')
         page.click('text=확인')
 
