@@ -2,8 +2,7 @@ name: richman-action.game
 
 on:
   schedule:
-    - cron: '10 1 * * MON' # UTC 월요일 00:50 == KST 월요일 09:50
-  
+    - cron: '21 1 * * MON' # UTC 월요일 00:50 == KST 월요일 09:50
 
 jobs:
   build:
