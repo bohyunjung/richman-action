@@ -3,7 +3,7 @@ name: richman-action.game
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 1 * * 1'
+    - cron: '45 21 * * SUN'
     
 jobs:
   build:
