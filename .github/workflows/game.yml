@@ -1,9 +1,10 @@
 name: richman-action.game
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '21 1 * * MON' # UTC 월요일 00:50 == KST 월요일 09:50
-
+    - cron: '26 1 * * 1'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
